@@ -1,0 +1,5 @@
+.feature-image {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.28)),
+    url("/storefront-enhanced.png");
+}
