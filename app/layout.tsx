@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./storefront.css";
+import "./order.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://spicypizza.dk"),
   title: "Spicy Pizza & Grill | Pizza og takeaway i Horsens",
