@@ -1,0 +1,29 @@
+:root{--red:#a94f3d;--cream:#f3efe6;--ink:#20211d;--muted:#74746d;--line:#d6d0c4;--olive:#626b4f;--paper:#fbf8f1}
+body{background:var(--cream);font-family:"Helvetica Neue",Arial,sans-serif}
+.site-header{height:82px;background:rgba(28,29,25,.88);border:0;backdrop-filter:blur(14px)}
+.brand{letter-spacing:.11em}.brand-mark{border-width:1px;font-family:Georgia,serif}.site-header nav{gap:34px;font-size:11px;letter-spacing:.06em}
+.button{background:var(--olive);border-radius:0;letter-spacing:.15em}.button:hover{background:#778160}.cart-trigger span{color:var(--olive)}
+.hero{grid-template-columns:44% 56%;min-height:720px;background:#20211d}
+.hero-copy{padding:166px 6vw 76px}.hero-copy:after,.round-label{display:none}
+.hero h1{max-width:570px;margin:32px 0 30px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:clamp(56px,6.7vw,98px);font-weight:500;line-height:.94;letter-spacing:-.065em}
+.hero h1 em{display:block;color:#c87963;font-family:Georgia,serif;font-weight:400}
+.hero-copy>p{max-width:470px;color:#c0c0b9;font-size:16px;line-height:1.75}
+.hero-visual{min-height:720px;filter:saturate(.78) contrast(.98)}
+.hero-tag{top:auto;right:28px;bottom:28px;min-width:210px;background:rgba(243,239,230,.94);padding:20px 24px}
+.hero-tag span{color:var(--olive)}.hero-meta span{color:#b5a46c}.text-link span{color:#c87963}
+.eyebrow{color:var(--olive);letter-spacing:.24em}.eyebrow i{width:20px;height:1px}
+.marquee{display:none}
+.delivery-preview{background:var(--paper);border-color:var(--line);padding-top:26px;padding-bottom:26px}.delivery-icon{background:var(--olive)}.delivery-preview span{color:var(--olive)}.delivery-preview button{background:var(--ink)}.delivery-preview button b{color:#c87963}
+.menu-section{max-width:1280px;margin:auto;padding-top:105px}
+.section-heading h2,.feature-copy h2,.order-banner h2{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:500;letter-spacing:-.055em}
+.section-heading h2{font-size:clamp(44px,5vw,68px)}
+.category-tabs{gap:0;margin-top:55px}.category-tabs button{font-size:10px;letter-spacing:.14em;padding:17px 20px}.category-tabs button.active{color:var(--olive);border-color:var(--olive)}
+.menu-grid{gap:0 62px}.menu-card{grid-template-columns:30px 1fr auto;padding:28px 0}.menu-number{width:auto;height:auto;border:0;border-radius:0;display:block;padding-top:4px;font:500 10px Arial;color:#99978e}
+.menu-title h3{font-family:"Helvetica Neue",Arial,sans-serif;font-size:19px;font-weight:600;letter-spacing:-.02em}.menu-copy p{font-size:12px;line-height:1.7}.price{font-family:"Helvetica Neue",Arial,sans-serif;font-size:17px;font-weight:600}.menu-buy button{width:34px;height:34px;background:transparent;color:var(--ink);border:1px solid #aaa59b;font-size:19px}.menu-buy button:hover{background:var(--olive);border-color:var(--olive)}
+.hot,.badge{color:var(--olive);border-color:#8f957d}.feature-section{background:#272923;min-height:620px}.feature-image{filter:saturate(.68)}.feature-copy{padding-top:90px;padding-bottom:90px}.feature-copy h2{font-size:clamp(43px,4.7vw,68px)}
+.order-banner{background:#a95a45}.order-banner:after{display:none}.order-banner h2{max-width:900px}.button-light{color:#755c42}.light-link span{color:#f0c0b1}
+.food-control{background:#d9d0a8}.smiley-mark{border-width:2px}.food-control h2{font-family:"Helvetica Neue",Arial,sans-serif;font-weight:500;letter-spacing:-.035em}.food-control>a{background:var(--ink)}.food-control>a b{color:#d9d0a8}
+footer{background:#20211d;padding-top:80px}.footer-label{color:#aab091}.footer-bottom{border-color:#3d3e38}
+.cart-panel,.customizer{background:var(--paper)}.order-toggle button.active,.customizer-footer button{background:var(--olive)}.checkout-button{background:var(--olive)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-copy{padding-top:145px}.hero-visual{min-height:520px}.menu-section{max-width:none}}
+@media(max-width:600px){.site-header{height:72px}.hero h1{font-size:54px}.hero-visual{min-height:400px}.delivery-preview{padding-top:20px;padding-bottom:20px}.menu-grid{gap:0}.menu-card{grid-template-columns:25px 1fr}.section-heading h2{font-size:43px}}
