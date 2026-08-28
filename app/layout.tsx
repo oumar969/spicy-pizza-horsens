@@ -4,6 +4,7 @@ import "./storefront.css";
 import "./order.css";
 import "./customizer.css";
 import "./delivery.css";
+import "./food-control.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://spicypizza.dk"),
   title: "Spicy Pizza & Grill | Pizza og takeaway i Horsens",

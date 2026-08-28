@@ -1,0 +1,8 @@
+.food-control{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:38px 7vw;background:#f6c600;color:#171814}
+.smiley-mark{width:72px;height:72px;display:grid;place-items:center;border:4px solid currentColor;border-radius:50%;font:700 49px/1 Arial,sans-serif;transform:rotate(-4deg)}
+.food-control span{display:block;text-transform:uppercase;font-size:8px;font-weight:900;letter-spacing:.17em}
+.food-control h2{margin:5px 0 4px;font:700 29px Georgia,serif}
+.food-control p{margin:0;font-size:12px;line-height:1.5}
+.food-control>a{display:inline-flex;align-items:center;gap:14px;min-height:50px;padding:0 21px;background:#171814;color:#fff;text-transform:uppercase;font-size:9px;font-weight:900;letter-spacing:.11em}
+.food-control>a b{color:#f6c600;font-size:15px}
+@media(max-width:700px){.food-control{grid-template-columns:auto 1fr}.food-control>a{grid-column:1/-1;justify-content:center}.smiley-mark{width:58px;height:58px;font-size:39px}.food-control h2{font-size:24px}}
