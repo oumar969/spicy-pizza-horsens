@@ -19,7 +19,6 @@ export default function Home() {
   const [selectedItem, setSelectedItem] = useState<MenuItem|null>(null);
   const [selectedSize, setSelectedSize] = useState("Alm.");
   const [selectedExtras, setSelectedExtras] = useState<Record<string,number>>({});
-  const [itemNote, setItemNote] = useState("");
   const visibleItems = menuItems.filter((item) => item.category === activeCategory);
   const itemCount = cart.reduce((sum,item) => sum + item.quantity, 0);
   const subtotal = cart.reduce((sum,item) => sum + item.unitPrice * item.quantity, 0);
@@ -27,9 +26,9 @@ export default function Home() {
   const allowsExtras = (item:MenuItem) => ["Pizza","Spicy","Børnepizza","Deep pan","Indbagt","UFO"].includes(item.category);
   const itemBasePrice = selectedItem ? selectedItem.variants?.find((variant)=>variant.label===selectedSize)?.price ?? selectedItem.price : 0;
   const extrasPrice = toppings.reduce((sum,topping)=>sum+(selectedExtras[topping.name]||0)*topping.price,0);
-  const openCustomizer = (item:MenuItem) => { setSelectedItem(item); setSelectedSize(item.variants?.[0]?.label||"Standard"); setSelectedExtras({}); setItemNote(""); };
+  const openCustomizer = (item:MenuItem) => { setSelectedItem(item); setSelectedSize(item.variants?.[0]?.label||"Standard"); setSelectedExtras({}); };
   const updateExtra = (name:string,amount:number) => setSelectedExtras((current)=>({...current,[name]:Math.max(0,(current[name]||0)+amount)}));
-  const confirmItem = () => { if(!selectedItem)return; const extras=toppings.filter((t)=>selectedExtras[t.name]>0).map((t)=>({...t,quantity:selectedExtras[t.name]})); const id=`${selectedItem.number}-${Date.now()}`; const hasVariant=Boolean(selectedItem.variants?.length); const details=[hasVariant?selectedSize:"",extras.map((extra)=>`${extra.quantity}× ${extra.name}`).join(", "),itemNote].filter(Boolean).join(" · "); setCart((current)=>[...current,{...selectedItem,name:`${selectedItem.name}${hasVariant?` · ${selectedSize}`:""}`,description:details,price:itemBasePrice+extrasPrice,id,quantity:1,size:hasVariant?selectedSize:"Standard",extras,note:itemNote,unitPrice:itemBasePrice+extrasPrice}]); setSelectedItem(null); setCartOpen(true); };
+  const confirmItem = () => { if(!selectedItem)return; const extras=toppings.filter((t)=>selectedExtras[t.name]>0).map((t)=>({...t,quantity:selectedExtras[t.name]})); const id=`${selectedItem.number}-${Date.now()}`; const hasVariant=Boolean(selectedItem.variants?.length); const details=[hasVariant?selectedSize:"",extras.map((extra)=>`${extra.quantity}× ${extra.name}`).join(", ")].filter(Boolean).join(" · "); setCart((current)=>[...current,{...selectedItem,name:`${selectedItem.name}${hasVariant?` · ${selectedSize}`:""}`,description:details,price:itemBasePrice+extrasPrice,id,quantity:1,size:hasVariant?selectedSize:"Standard",extras,note:"",unitPrice:itemBasePrice+extrasPrice}]); setSelectedItem(null); setCartOpen(true); };
   const changeQuantity = (number:string, amount:number) => setCart((current)=>current.map((item)=>item.number===number?{...item,quantity:item.quantity+amount}:item).filter((item)=>item.quantity>0));
   const openCart = () => { setCheckout(false); setCartOpen(true); };
 
@@ -54,7 +53,6 @@ export default function Home() {
       <div className="customizer-body">
         {selectedItem.variants&&selectedItem.variants.length>1&&<div className="customizer-section"><h3>Vælg variant</h3><div className="size-options">{selectedItem.variants.map((variant)=><button key={variant.label} className={selectedSize===variant.label?"active":""} onClick={()=>setSelectedSize(variant.label)}><span>{variant.label}</span><strong>{variant.price},–</strong></button>)}</div></div>}
         {allowsExtras(selectedItem)&&<div className="customizer-section"><h3>Ekstra tilbehør <small>valgfrit</small></h3><div className="toppings-grid">{toppings.map((topping)=><div className="topping-row" key={topping.name}><div><strong>{topping.name}</strong><small>+{topping.price},–</small></div><div className="topping-quantity"><button onClick={()=>updateExtra(topping.name,-1)} aria-label={`Fjern ${topping.name}`}>−</button><span>{selectedExtras[topping.name]||0}</span><button onClick={()=>updateExtra(topping.name,1)} aria-label={`Tilføj ${topping.name}`}>+</button></div></div>)}</div></div>}
-        <div className="customizer-section"><label className="item-note">Bemærkning til køkkenet<textarea value={itemNote} onChange={(event)=>setItemNote(event.target.value)} placeholder="Fx uden løg, dressing ved siden af eller ekstra sprød" maxLength={250}/><small>{itemNote.length}/250</small></label></div>
       </div>
       <div className="customizer-footer"><div><span>Total for varen</span><strong>{itemBasePrice+extrasPrice},–</strong></div><button onClick={confirmItem}>Læg i kurven <span>→</span></button></div>
     </section></>}
