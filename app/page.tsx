@@ -24,7 +24,7 @@ export default function Home() {
   const itemCount = cart.reduce((sum,item) => sum + item.quantity, 0);
   const subtotal = cart.reduce((sum,item) => sum + item.unitPrice * item.quantity, 0);
   const deliveryFee = orderType === "delivery" ? 25 : 0;
-  const isPizza = (item:MenuItem) => ["Pizza","Spicy","Børnepizza","Deep pan","Indbagt","UFO"].includes(item.category);
+  const allowsExtras = (item:MenuItem) => ["Pizza","Spicy","Børnepizza","Deep pan","Indbagt","UFO"].includes(item.category);
   const itemBasePrice = selectedItem ? selectedItem.variants?.find((variant)=>variant.label===selectedSize)?.price ?? selectedItem.price : 0;
   const extrasPrice = toppings.reduce((sum,topping)=>sum+(selectedExtras[topping.name]||0)*topping.price,0);
   const openCustomizer = (item:MenuItem) => { setSelectedItem(item); setSelectedSize(item.variants?.[0]?.label||"Standard"); setSelectedExtras({}); setItemNote(""); };
@@ -53,7 +53,7 @@ export default function Home() {
       <div className="customizer-head"><div><span>NR. {selectedItem.number}</span><h2>{selectedItem.name}</h2><p>{selectedItem.description}</p></div><button onClick={()=>setSelectedItem(null)} aria-label="Luk">×</button></div>
       <div className="customizer-body">
         {selectedItem.variants&&selectedItem.variants.length>1&&<div className="customizer-section"><h3>Vælg variant</h3><div className="size-options">{selectedItem.variants.map((variant)=><button key={variant.label} className={selectedSize===variant.label?"active":""} onClick={()=>setSelectedSize(variant.label)}><span>{variant.label}</span><strong>{variant.price},–</strong></button>)}</div></div>}
-        <div className="customizer-section"><h3>Ekstra tilbehør <small>valgfrit</small></h3><div className="toppings-grid">{toppings.map((topping)=><div className="topping-row" key={topping.name}><div><strong>{topping.name}</strong><small>+{topping.price},–</small></div><div className="topping-quantity"><button onClick={()=>updateExtra(topping.name,-1)} aria-label={`Fjern ${topping.name}`}>−</button><span>{selectedExtras[topping.name]||0}</span><button onClick={()=>updateExtra(topping.name,1)} aria-label={`Tilføj ${topping.name}`}>+</button></div></div>)}</div></div>
+        {allowsExtras(selectedItem)&&<div className="customizer-section"><h3>Ekstra tilbehør <small>valgfrit</small></h3><div className="toppings-grid">{toppings.map((topping)=><div className="topping-row" key={topping.name}><div><strong>{topping.name}</strong><small>+{topping.price},–</small></div><div className="topping-quantity"><button onClick={()=>updateExtra(topping.name,-1)} aria-label={`Fjern ${topping.name}`}>−</button><span>{selectedExtras[topping.name]||0}</span><button onClick={()=>updateExtra(topping.name,1)} aria-label={`Tilføj ${topping.name}`}>+</button></div></div>)}</div></div>}
         <div className="customizer-section"><label className="item-note">Bemærkning til køkkenet<textarea value={itemNote} onChange={(event)=>setItemNote(event.target.value)} placeholder="Fx uden løg, dressing ved siden af eller ekstra sprød" maxLength={250}/><small>{itemNote.length}/250</small></label></div>
       </div>
       <div className="customizer-footer"><div><span>Total for varen</span><strong>{itemBasePrice+extrasPrice},–</strong></div><button onClick={confirmItem}>Læg i kurven <span>→</span></button></div>
