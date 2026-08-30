@@ -12,15 +12,12 @@ const toppings:Topping[] = [
 ];
 const reviews = [
   { source:"Google", rating:5, author:"Mark C", date:"23. aug. 2025", text:"Food was spot on. I had the pizza sandwich and would 100% come here again.", url:"https://www.google.com/maps/search/?api=1&query=Spicy+Pizza+%26+Grill+Vestergade+45+Horsens" },
-  { source:"Google", rating:2, author:"Sohail S", date:"27. jun. 2025", text:"Friendly and relatively fast service, but the food was not tasty.", url:"https://www.google.com/maps/search/?api=1&query=Spicy+Pizza+%26+Grill+Vestergade+45+Horsens" },
   { source:"Trustpilot", rating:5, author:"Rasmus Sommer Mikkelsen", date:"29. mar. 2025", text:"Lækre og spizy kebab ruller.", url:"https://dk.trustpilot.com/review/spicypizza.dk" },
   { source:"Google", rating:5, author:"Jenny N", date:"14. sep. 2024", text:"Great pizza, good price, nice staff. Complimentary hot chili 😀", url:"https://www.google.com/maps/search/?api=1&query=Spicy+Pizza+%26+Grill+Vestergade+45+Horsens" },
-  { source:"Google", rating:2, author:"Lenka I", date:"19. mar. 2024", text:"The pictures online looked different, and our request for no bacon was missed.", url:"https://www.google.com/maps/search/?api=1&query=Spicy+Pizza+%26+Grill+Vestergade+45+Horsens" },
   { source:"Trustpilot", rating:5, author:"Knud Nielsen", date:"2. jun. 2023", text:"Virkelig god durum 😀 kommer helt sikkert igen.", url:"https://dk.trustpilot.com/review/spicypizza.dk" },
   { source:"Trustpilot", rating:5, author:"Christian", date:"2. jun. 2023", text:"Meget god stærk kebab. Kan varmt anbefale denne 👊", url:"https://dk.trustpilot.com/review/spicypizza.dk" },
   { source:"Google", rating:5, author:"Ruben M", date:"13. maj 2023", text:"Best spicy pizza I have ever eaten, also great pasta.", url:"https://www.google.com/maps/search/?api=1&query=Spicy+Pizza+%26+Grill+Vestergade+45+Horsens" },
   { source:"Trustpilot", rating:5, author:"Sonny Søby Jensen", date:"19. apr. 2023", text:"Tynd bund, hurtig levering og friske råvarer. Perfekt.", url:"https://dk.trustpilot.com/review/spicypizza.dk" },
-  { source:"Trustpilot", rating:1, author:"Camilla Jakobsen", date:"15. feb. 2023", text:"Vi fik ikke det ekstra tilbehør, vi havde betalt for. Rigtig dårlig oplevelse.", url:"https://dk.trustpilot.com/review/spicypizza.dk" },
 ];
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("Pizza");
@@ -52,7 +49,7 @@ export default function Home() {
     </header>
     <section className="hero" id="top"><div className="hero-copy"><span className="eyebrow"><i /> Vestergade 45 · Horsens</span><h1>Smagen må gerne <em>bide lidt.</em></h1><p>Sprøde pizzaer, saftige burgere og vores egen stærke sauce. Tilberedt frisk, når du bestiller.</p><div className="hero-actions"><a className="button" href="#menu">Bestil direkte</a><a className="text-link" href="tel:+4526432750">Ring 26 43 27 50 <span>→</span></a></div><div className="hero-meta"><div><strong>4,8</strong><span>★★★★★<small>158 Google-anmeldelser</small></span></div><div><strong>20</strong><span>min.<small>Ca. afhentning</small></span></div></div></div><div className="hero-visual" aria-label="Facaden på Spicy Pizza og Grill i Horsens"><div className="hero-tag"><span>Åben i dag</span><strong>16:00—23:00</strong></div><div className="round-label"><span>HORSENS</span><b>SPICY</b></div></div></section>
     <section className="review-marquee" aria-labelledby="reviews-title">
-      <div className="review-heading"><div><span>Kundernes oplevelser</span><h2 id="reviews-title">De seneste anmeldelser</h2></div><div><strong>Google 4,8/5</strong><small>158 anmeldelser</small><strong>Trustpilot 4,0/5</strong><small>5 anmeldelser</small></div></div>
+      <div className="review-heading"><div><span>Kundernes favoritter</span><h2 id="reviews-title">5-stjernede anmeldelser</h2></div><div><strong>Google 4,8/5</strong><small>158 anmeldelser</small><strong>Trustpilot 4,0/5</strong><small>5 anmeldelser</small></div></div>
       <div className="review-track">
         {[0,1].map((copy)=><div className="review-group" aria-hidden={copy===1} key={copy}>{reviews.map((review,index)=><a className="review-card" href={review.url} target="_blank" rel="noopener noreferrer" key={`${copy}-${review.source}-${review.author}`} tabIndex={copy===1?-1:undefined}><div className="review-card-top"><span className={`review-source ${review.source.toLowerCase()}`}>{review.source}</span><span className="review-stars" aria-label={`${review.rating} ud af 5 stjerner`}>{"★".repeat(review.rating)}<em>{"★".repeat(5-review.rating)}</em></span></div><blockquote>“{review.text}”</blockquote><div className="review-author"><span><strong>{review.author}</strong><small>{review.date}</small></span><b aria-hidden="true">↗</b></div></a>)}</div>)}
       </div>
