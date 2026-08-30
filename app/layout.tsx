@@ -13,4 +13,4 @@ export const metadata: Metadata = {
   openGraph: { title: "Spicy Pizza & Grill", description: "Pizza, pasta og grill i Horsens.", images: ["/og.png"] },
   twitter: { card: "summary_large_image", title: "Spicy Pizza & Grill", description: "Pizza, pasta og grill i Horsens.", images: ["/og.png"] },
 };
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="da"><body>{children}</body></html>; }
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="da"><head><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/></head><body>{children}</body></html>; }
