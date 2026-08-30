@@ -9,7 +9,7 @@ body{background:var(--cream);font-family:"Helvetica Neue",Arial,sans-serif}
 .hero h1{max-width:570px;margin:32px 0 30px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:clamp(56px,6.7vw,98px);font-weight:500;line-height:.94;letter-spacing:-.065em}
 .hero h1 em{display:block;color:#c95a4d;font-family:Georgia,serif;font-weight:400}
 .hero-copy>p{max-width:470px;color:#c0c0b9;font-size:16px;line-height:1.75}
-.hero-visual{min-height:720px;filter:saturate(.78) contrast(.98)}
+.hero-visual{min-height:720px;background-image:linear-gradient(180deg,rgba(12,13,12,.08),rgba(12,13,12,.34)),url("/storefront-hero.png");background-position:center;background-size:cover;filter:saturate(.9) contrast(1.01)}
 .hero-tag{top:auto;right:28px;bottom:28px;min-width:210px;background:rgba(243,239,230,.94);padding:20px 24px}
 .hero-tag span{color:var(--red)}.hero-meta span{color:#d0675d}.text-link span{color:#d0675d}
 .eyebrow{color:var(--red);letter-spacing:.24em}.eyebrow i{width:20px;height:1px;background:var(--chili-green)}
