@@ -26,7 +26,7 @@ body,button,input,textarea{font-family:var(--font-nordic)}
 .menu-section{max-width:1280px;margin:auto;padding-top:105px}
 .section-heading h2,.feature-copy h2,.order-banner h2{font-family:var(--font-nordic);font-weight:500;letter-spacing:-.055em}
 .section-heading h2{font-size:clamp(44px,5vw,68px)}
-.category-tabs{gap:0;margin-top:55px}.category-tabs button{font-size:10px;letter-spacing:.14em;padding:17px 20px}.category-tabs button.active{color:var(--red);border-color:var(--red)}
+.category-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:55px;border-bottom:0;overflow:visible}.category-tabs button{flex:0 0 auto;font-size:10px;letter-spacing:.12em;padding:13px 17px;border:1px solid #bbb5ab;background:transparent}.category-tabs button:hover{border-color:var(--ink);color:var(--ink)}.category-tabs button.active{color:#fff;background:var(--red);border-color:var(--red)}
 .menu-grid{gap:0 62px}.menu-card{grid-template-columns:30px 1fr auto;padding:28px 0}.menu-number{width:auto;height:auto;border:0;border-radius:0;display:block;padding-top:4px;font:500 10px Arial;color:#99978e}
 .menu-title h3{font-family:var(--font-nordic);font-size:19px;font-weight:600;letter-spacing:-.02em}.menu-copy p{font-size:12px;line-height:1.7}.price{font-family:var(--font-nordic);font-size:17px;font-weight:600}.menu-buy button{width:34px;height:34px;background:transparent;color:var(--ink);border:1px solid #aaa59b;font-size:19px}.menu-buy button:hover{background:var(--red);border-color:var(--red)}
 .hot,.badge{color:var(--red);border-color:#c07a73}.feature-section{background:#222220;min-height:620px}.feature-image{filter:saturate(.72)}.feature-copy{padding-top:90px;padding-bottom:90px}.feature-copy h2{font-size:clamp(43px,4.7vw,68px)}
